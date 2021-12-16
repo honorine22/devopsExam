@@ -38,8 +38,14 @@ public class City {
 		this.fahrenheit = fahrenheit;
 	}
 
+    public City(int id,String name, double weather) {
+		this.id = id;
+		this.name = name;
+		this.weather = weather;
+    }
 
-	public long getId() {
+
+    public long getId() {
 		return id;
 	}
 

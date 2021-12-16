@@ -24,7 +24,7 @@ public class CityUtilTest {
     private CityService cityService;
 
     @Test
-    public void no_city_above_forty() {
+    public void no_city_has_above_forty() {
         when(cityRepositoryMock.findAll()).thenReturn(Arrays.asList(
                 new City(101, "Kigali", 24),
                 new City(102, "Musanze", 18),
@@ -34,4 +34,18 @@ public class CityUtilTest {
         assertFalse("No city has weather more than 40\n" +
                 "degree Celsius", cityService.getAll().get(0).getWeather() > 40);
     }
+
+    @Test
+    public void no_city_has_less_ten() {
+        when(cityRepositoryMock.findAll()).thenReturn(Arrays.asList(
+                new City(101, "Kigali", 24),
+                new City(102, "Musanze", 18),
+                new City(103, "Rubavu", 20),
+                new City(104, "Nyagatare", 28)
+        ));
+        assertFalse("No city has weather less than 10\n" +
+                "degree Celsius", cityService.getAll().get(0).getWeather() < 10);
+    }
+
+
 }

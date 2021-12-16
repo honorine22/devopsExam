@@ -34,10 +34,10 @@ public class CityControllerIntegrationTest {
     }
     @Test
     public void getById_successObject() {
-        City city = this.restTemplate.getForObject("/api/cities/id/101", City.class);
+        City city = this.restTemplate.getForObject("/api/cities/id/102", City.class);
 
-        assertEquals("Kigali", city.getName());
-        assertEquals(24, city.getWeather());
+        assertEquals("Musanze", city.getName());
+        assertEquals("18",city.getWeather());
     }
 
     @Test
